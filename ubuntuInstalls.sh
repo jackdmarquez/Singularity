@@ -32,7 +32,7 @@ sudo apt-get install -y build-essential \
 libssl-dev uuid-dev libgpgme11-dev libseccomp-dev pkg-config squashfs-tools
 export VERSION=1.11.5 OS=linux ARCH=amd64
 echo "Installing GO........... 74% "
-wget -O /tmp/go${VERSION}.${OS}-${ARCH}.tar.gz https://dl.google.com/go/go${VERSION}.${OS}-${ARCH}.ta$
+wget -O /tmp/go${VERSION}.${OS}-${ARCH}.tar.gz https://dl.google.com/go/go${VERSION}.${OS}-${ARCH}.tar.gz && \
 sudo tar -C /usr/local -xzf /tmp/go${VERSION}.${OS}-${ARCH}.tar.gz
 echo 'export GOPATH=${HOME}/go' >> ~/.bashrc && \
 echo 'export PATH=/usr/local/go/bin:${PATH}:${GOPATH}/bin' >> ~/.bashrc && \
