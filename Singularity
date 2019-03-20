@@ -19,9 +19,9 @@ From: ubuntu:16.04
 	which mpiexec
 	mpiexec --version
 	apt-get -y install git
-	apt-get install nano 
-	apt-get install nfs-kernel-server
-	apt-get install openssh-server
+	apt-get -y install nano 
+	apt-get -y install nfs-kernel-server
+	apt-get -y install openssh-server
 	cd	
 	git clone https://github.com/wesleykendall/mpitutorial
 	cd mpitutorial/tutorials/mpi-hello-world/code
