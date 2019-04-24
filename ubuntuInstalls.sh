@@ -3,28 +3,25 @@ sudo apt-get -y update
 sudo apt-get -y install build-essential
 sudo apt-get -y install wget
 echo "Installing OpenMpi...........24%"
-wget https://download.open-mpi.org/release/open-mpi/v3.1/openmpi-3.1.2.tar.gz
-tar -xzvf openmpi-3.1.2.tar.gz
-cd openmpi-3.1.2
-mkdir build
-cd build
-../configure --prefix=/usr/local
-make -j4
-sudo make install
-sudo ldconfig
-which mpicc
-mpicc -show
-which mpiexec
-mpiexec --version
+mkdir /tmp/openmpi && \
+cd /tmp/openmpi && \
+wget https://www.open-mpi.org/software/ompi/v4.0/downloads/openmpi-4.0.0.tar.gz && \
+tar zxf openmpi-4.0.0.tar.gz && \
+cd openmpi-4.0.0 && \
+./configure --enable-orterun-prefix-by-default && \
+make -j $(nproc) all && \
+sudo make install && \
+sudo ldconfig && \
+rm -rf /tmp/openmpi
 echo "Installing Other Components...........38%"
-sudo apt-get -y install git
-sudo apt-get -y install nano 
-sudo apt-get -y install nfs-kernel-server
-sudo apt-get -y install openssh-server
+sudo apt-get -y install git && \
+sudo apt-get -y install nano  && \
+sudo apt-get -y install nfs-kernel-server && \
+sudo apt-get -y install openssh-server 
 cd 
 echo "Copying OpenMpi examples........... 50%"     
-git clone https://github.com/wesleykendall/mpitutorial
-cd mpitutorial/tutorials/mpi-hello-world/code
+git clone https://github.com/wesleykendall/mpitutorial && \
+cd mpitutorial/tutorials/mpi-hello-world/code && \
 make
 echo "Installing Singularity........... 62%"
 sudo apt-get update && \
