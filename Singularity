@@ -5,19 +5,16 @@ From: ubuntu:16.04
 	apt-get -y update
 	apt-get -y install build-essential
 	apt-get -y install wget
-	wget https://download.open-mpi.org/release/open-mpi/v3.1/openmpi-3.1.2.tar.gz
-	tar -xzvf openmpi-3.1.2.tar.gz
-	cd openmpi-3.1.2
-	mkdir build
-	cd build
-	../configure --prefix=/usr/local
-	make -j4
-	make install
-	ldconfig
-	which mpicc
-	mpicc -show
-	which mpiexec
-	mpiexec --version
+	mkdir /tmp/openmpi && \
+    	cd /tmp/openmpi && \
+    	wget https://www.open-mpi.org/software/ompi/v4.0/downloads/openmpi-4.0.0.tar.gz && \
+    	tar zxf openmpi-4.0.0.tar.gz && \
+    	cd openmpi-4.0.0 && \
+    	./configure --enable-orterun-prefix-by-default && \
+    	make -j $(nproc) all && \
+    	make install && \
+    	ldconfig && \
+	rm -rf /tmp/openmpi
 	apt-get -y install git
 	apt-get -y install nano 
 	apt-get -y install nfs-kernel-server
