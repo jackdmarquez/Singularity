@@ -1,0 +1,16 @@
+Bootstrap: docker
+From: ubuntu:16.04
+
+%post
+	apt-get -y update
+	apt-get -y install build-essential
+	apt-get -y install wget
+	apt-get -y install mpich
+	apt-get -y install git
+	apt-get -y install nano 
+	apt-get -y install nfs-kernel-server
+	apt-get -y install openssh-server
+	cd	
+	git clone https://github.com/wesleykendall/mpitutorial
+	cd mpitutorial/tutorials/mpi-hello-world/code
+  make
