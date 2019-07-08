@@ -5,7 +5,12 @@ From: ubuntu:16.04
 	apt-get -y update
 	apt-get -y install build-essential
 	apt-get -y install wget
-	apt-get -y install mpich
+	wget www.mpich.org/static/downloads/3.3.1/mpich-3.3.1.tar.gz
+	tar xzf mpich-3.3.1.tar.gz
+	cd mpich-3.3.1/
+	./configure --prefix=/usr/local --enable-fast=all,03 --enable-shared
+	make 
+	make install
 	ldconfig
 	apt-get -y install git
 	apt-get -y install nano 
@@ -14,4 +19,4 @@ From: ubuntu:16.04
 	cd	
 	git clone https://github.com/wesleykendall/mpitutorial
 	cd mpitutorial/tutorials/mpi-hello-world/code
-  make
+ 	make
