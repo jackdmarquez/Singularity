@@ -5,6 +5,7 @@ From: ubuntu:16.04
 	apt-get -y update
 	apt-get -y install build-essential
 	apt-get -y install wget
+	apt-get -y install gfortran
 	wget www.mpich.org/static/downloads/3.3.1/mpich-3.3.1.tar.gz
 	tar xzf mpich-3.3.1.tar.gz
 	cd mpich-3.3.1/
