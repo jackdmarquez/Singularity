@@ -6,6 +6,7 @@ From: ubuntu:16.04
 	apt-get -y install build-essential
 	apt-get -y install wget
 	apt-get -y install mpich
+	ldconfig
 	apt-get -y install git
 	apt-get -y install nano 
 	apt-get -y install nfs-kernel-server
